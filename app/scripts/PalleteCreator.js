@@ -3,7 +3,6 @@
 /*global window */
 /*jshint unused: false */
 
-
 /*
 * Class to create Palletes
 */
@@ -37,22 +36,20 @@ function PalleteCreator(){
 		return document.createElement(elem);
 	}
 
-
 	/*
 	* Validates Hex colours
 	* return returns the hex colour of the input
 	*/
 	self.validateHex = function() {
-		var grabHex = document.getElementsByName('hex')[0].value;
-		//TODO: VALIDATE HEX VALUE.
-		// if (grabHex.length > 3 && grabHex.length < 6) {
-		// 	console.log(grabHex);
-		// 	return '#' + grabHex;
-		// } else {
-		// 	return null;
-		// }
-		return '#' + grabHex;
-		
+		var grabHex = document.getElementsByName('hex')[0].value,
+			regex = /^#([0-9A-Fa-f]{6}){1}$/m;
+
+		if(regex.test(grabHex)) {
+			return grabHex;
+		} else {
+			window.alert('Please enter a valid hex value');
+			return false;
+		}
 	};
 
 	/*
@@ -73,7 +70,6 @@ function PalleteCreator(){
 		
 	};
 
-
 	/*
 	* Creates pallete element
 	* Calls storePallete() and passes hex value
@@ -88,8 +84,6 @@ function PalleteCreator(){
 			container.appendChild(pallete);
 			storePallete(hexCode);
 			returnPalleteValue(pallete);
-		} else {
-			window.alert('Not a valid hex colour');
 		}
 	}
 
@@ -105,7 +99,6 @@ function PalleteCreator(){
 			copyToClipboard(returnValue);
 		};
 	}
-
 	
 	/*
 	* Grabs values of pallete and prompt its to user
@@ -167,6 +160,4 @@ function PalleteCreator(){
 
 		localStorage.clear();
 	}
-
-
 }
