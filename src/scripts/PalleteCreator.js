@@ -63,6 +63,15 @@ function PalleteCreator(){
 	};
 
 	/*
+	* Creates begin state
+	*/
+	self.beginState = function() {
+		var startingColours = ["#343434", "#232323", "#111111"];
+		generatePallete(startingColours);
+	};
+
+
+	/*
 	* Attach eventhandler to createPallete()
 	*/
 	self.triggerBtn = function(createBtn) {
