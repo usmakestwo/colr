@@ -3,7 +3,6 @@
 *.com
 *.class
 *.dll
-*.exe
 *.o
 *.so
  
@@ -15,12 +14,12 @@
 *.dmg
 *.gz
 *.iso
-*.jar
 *.rar
 *.tar
 *.zip
 *node_modules
 *public
+*bower_components
  
 # Logs and databases #
 ######################
@@ -42,8 +41,3 @@ Thumbs.db
 ######################
 **/.sass-cache
 **/.sass-cache/*
-
-# Bower #
-######################
-**/bower_components
-**/bower_components/*

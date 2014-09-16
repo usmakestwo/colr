@@ -29,6 +29,7 @@ function init () {
 		myPallete = new PalleteCreator();
 
 	myPallete.readyDOM();
+	myPallete.beginState();
 	myPallete.triggerBtn(actionBtn);
 	myPallete.retrievePallete();
 }
