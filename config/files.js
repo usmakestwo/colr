@@ -27,9 +27,7 @@ exports.libs = [
 ];
 
 exports.styles = [
-	'src/styles/*.scss',
-	'src/styles/*.css',
-	'src/styles/*.sass'
+	'src/styles/main.sass'
 ];
 
 exports.images = [
