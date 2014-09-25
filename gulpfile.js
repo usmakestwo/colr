@@ -19,6 +19,10 @@ var stylish = require('jshint-stylish');
 var pkg = require('./package.json');
 var gulpif = require('gulp-if');
 var argv = require('yargs').argv;
+var postcss = require('gulp-postcss');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('autoprefixer-core');
+
 
 var serverAddress = 'localhost:', port = 8090;
 
@@ -43,10 +47,15 @@ gulp.task('sass', function () {
 			gutil.log(gutil.colors.green('Sass styles compiled successfully.'));
 		}
 	}))
+	.pipe(sourcemaps.init())
+	.pipe(postcss([autoprefixer]))
+	.pipe(sourcemaps.write('.'))
 	.pipe(concat('main-' + pkg.version + '.min.css'))
 	.pipe(gulpif(argv.production, minifyCSS()))
 	.pipe(gulp.dest(files.publicStyles))
 });
+
+
 
 //Minify Images
 gulp.task('minify-img', function () {
@@ -92,7 +101,7 @@ gulp.task('test-watch', function() {
 		});
 });
 
-/* 
+/*
  * Watch
  * Open Sublime before running this task
 */
